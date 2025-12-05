@@ -1,12 +1,13 @@
+import Logo from "../../../components/logo/Logo";
 
 
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-horizontal footer-center  bg-[#0B0B0B]  text-white p-10">
+      <footer className="footer footer-horizontal footer-center rounded-2xl bg-[#0B0B0B]   text-white p-10">
         <aside>
-          {/* <Logo /> */}
-          <p className='text-gray-400 font-bold'>
+          <Logo/>
+          <p className='text-gray-400 py-3 font-bold'>
             Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to <br /> business shipments — we deliver on time, every time.
           </p>
           <div className='grid lg:grid-cols-6 md:grid-cols-4 grid-cols-1 py-5 mt-5 gap-5 border-y border-[#03464D] btn-dash font-medium '>
