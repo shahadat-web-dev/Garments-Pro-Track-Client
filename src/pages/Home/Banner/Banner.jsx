@@ -51,7 +51,7 @@ const Banner = () => {
   }
 
   return (
-    <section className="relative md:mt-10 md:rounded-2xl w-full bg-gradient-to-r from-[#84C2FF] to-[#C2B3FF] text-white overflow-hidden">
+    <section className="relative   w-full bg-gradient-to-r from-[#84C2FF] to-[#C2B3FF] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center transition-all duration-700">
         
         <motion.div
@@ -94,8 +94,6 @@ const Banner = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           />
-        </motion.div>
-      </div>
 
       <button
         onClick={prevSlide}
@@ -103,13 +101,17 @@ const Banner = () => {
       >
         ❮
       </button>
-
       <button
         onClick={nextSlide}
         className="absolute right-5 top-1/2 -translate-y-1/2 text-white text-3xl"
       >
         ❯
       </button>
+        </motion.div>
+
+
+      </div>
+
     </section>
   )
 }
