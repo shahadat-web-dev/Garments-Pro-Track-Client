@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react"
+import { motion } from "framer-motion"
 
 const Banner = () => {
   const slides = [
@@ -20,36 +21,46 @@ const Banner = () => {
       desc: "Track fabric, accessories, production usage, and warehouse movement with ease.",
       img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
     },
-  ];
+  ]
 
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0)
 
-  // Wrap nextSlide inside useCallback
   const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  }, [slides.length]);
+    setCurrent(prev => (prev === slides.length - 1 ? 0 : prev + 1))
+  }, [slides.length])
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+    setCurrent(prev => (prev === 0 ? slides.length - 1 : prev - 1))
+  }
 
-  // Auto Slide
   useEffect(() => {
     const timer = setTimeout(() => {
-      nextSlide();
-    }, 4000);
+      nextSlide()
+    }, 4000)
+    return () => clearTimeout(timer)
+  }, [nextSlide])
 
-    return () => clearTimeout(timer);
-  }, [nextSlide]);
+  const fade = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+  }
+
+  const imageAnim = {
+    hidden: { opacity: 0, scale: 0.95 },
+    show: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+  }
 
   return (
-    <section className="relative md:mt-10 md:rounded-2xl w-full bg-linear-to-r from-[#84C2FF] to-[#C2B3FF] text-white overflow-hidden">
-
-      {/* Slider Wrapper */}
+    <section className="relative md:mt-10 md:rounded-2xl w-full bg-gradient-to-r from-[#84C2FF] to-[#C2B3FF] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center transition-all duration-700">
-
-        {/* Left Content */}
-        <div className="space-y-6">
+        
+        <motion.div
+          key={current}
+          variants={fade}
+          initial="hidden"
+          animate="show"
+          className="space-y-6"
+        >
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
             {slides[current].title}
           </h1>
@@ -66,19 +77,26 @@ const Banner = () => {
               Book a Product
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Image */}
-        <div className="flex justify-center">
-          <img
+        <motion.div
+          key={slides[current].img}
+          variants={imageAnim}
+          initial="hidden"
+          animate="show"
+          className="flex justify-center"
+        >
+          <motion.img
             src={slides[current].img}
             alt="Garments Production"
             className="rounded-2xl shadow-lg w-full max-w-md"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           />
-        </div>
+        </motion.div>
       </div>
 
-      {/* Prev / Next Buttons */}
       <button
         onClick={prevSlide}
         className="absolute left-5 top-1/2 -translate-y-1/2 text-white text-3xl"
@@ -93,7 +111,7 @@ const Banner = () => {
         ❯
       </button>
     </section>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner
