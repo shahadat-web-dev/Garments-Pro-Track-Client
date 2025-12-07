@@ -51,7 +51,7 @@ const Banner = () => {
   }
 
   return (
-    <section className="relative   w-full bg-gradient-to-r from-[#84C2FF] to-[#C2B3FF] text-white overflow-hidden">
+    <section className="relative w-full nav-bg text-color  text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center transition-all duration-700">
         
         <motion.div

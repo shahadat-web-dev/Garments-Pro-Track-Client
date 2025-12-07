@@ -1,9 +1,12 @@
 import Logo from '../../../components/logo/Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import { useTheme } from '../../ThemeContext/ThemeContext';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogOut = () => {
     logOut()
@@ -85,7 +88,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-lg fixed w-full z-50 transition duration-500">
+    <div className="backdrop-blur-lg nav-bg text-color  border border-white/20 shadow-lg fixed w-full z-50 transition duration-500">
       <div className="navbar max-w-7xl mx-auto md:px-5">
 
         {/* Navbar Start */}
@@ -117,7 +120,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <a className="text-2xl font-bold text-gray-800"><Logo /></a>
+          <a className="text-2xl font-bold text-color text-gray-800"><Logo /></a>
         </div>
 
         {/* Navbar Center */}
@@ -126,11 +129,22 @@ const Navbar = () => {
         </div>
 
         {/* Navbar End */}
+           
+
         <div className="navbar-end flex items-center gap-3">
+
+          {/* Desktop Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="text-2xl md:flex hidden p-2 rounded-full border hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer"
+          >
+            {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
+          </button>
+
           {!user && (
             <Link
               to="/login"
-              className="btn bg-gradient-to-r from-[#81C2FF] to-[#D6AEFF] text-white font-bold shadow-lg hover:scale-105 transform transition"
+              className="btn bg-linear-to-r from-[#81C2FF] to-[#D6AEFF] text-white font-bold shadow-lg hover:scale-105 transform transition"
             >
               Login
             </Link>
@@ -148,7 +162,7 @@ const Navbar = () => {
 
               <button
                 onClick={handleLogOut}
-                className="btn btn-sm bg-gradient-to-r from-[#81C2FF] to-[#D6AEFF] text-white font-semibold shadow-lg hover:scale-105 transform transition"
+                className="btn btn-sm bg-linear-to-r from-[#81C2FF] to-[#D6AEFF] text-white font-semibold shadow-lg hover:scale-105 transform transition"
               >
                 Logout
               </button>

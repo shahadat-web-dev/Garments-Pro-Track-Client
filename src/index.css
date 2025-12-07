@@ -9,3 +9,39 @@
   --color-primary: #86C1FF;
   --color-secondary: teal;
 }
+
+
+[data-theme="light"] {
+
+  body {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .text-color {
+    color: white;
+  }
+
+  .nav-bg {
+    background-color: black;
+  }
+}
+
+;
+
+[data-theme="dark"] {
+
+  body {
+    background-color: rgb(0, 0, 0);
+  }
+
+  .text-color {
+    color: #F6F6F6;
+  }
+
+  .nav-bg {
+    background-color: black;
+    background: linear-gradient(to right, #84C2FF, #C2B3FF);
+  }
+}
+
+;
