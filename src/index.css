@@ -17,12 +17,22 @@
     background-color: rgb(255, 255, 255);
   }
 
+  .name{
+    color: white;
+  }
   .text-color {
     color: white;
+  }
+  
+  .text{
+    color: black;
   }
 
   .nav-bg {
     background-color: black;
+  }
+  .banner-bg{
+    background-color: black
   }
 }
 
@@ -34,14 +44,26 @@
     background-color: rgb(0, 0, 0);
   }
 
+  .name{
+    color: black;
+  }
+
+  .text{
+    color: white;
+  }
+
   .text-color {
     color: #F6F6F6;
   }
 
-  .nav-bg {
-    background-color: black;
+  .banner-bg{
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .comon-bg{
     background: linear-gradient(to right, #84C2FF, #C2B3FF);
   }
+  
 }
 
 ;

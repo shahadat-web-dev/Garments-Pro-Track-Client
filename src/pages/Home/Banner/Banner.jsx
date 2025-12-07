@@ -40,20 +40,54 @@ const Banner = () => {
     return () => clearTimeout(timer)
   }, [nextSlide])
 
+
+  // TEXT ANIMATION
   const fade = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   }
 
+  // IMAGE ANIMATION
   const imageAnim = {
-    hidden: { opacity: 0, scale: 0.95 },
-    show: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, scale: 0.9 },
+    show: { opacity: 1, scale: 1, transition: { duration: 1 } },
   }
 
   return (
-    <section className="relative w-full nav-bg text-color  text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center transition-all duration-700">
-        
+    <section
+      className="relative w-full  h-[600px] md:h-[700px] text-color overflow-hidden"
+    >
+
+      {/* Background Image */}
+      <img
+        src={slides[current].img}
+        className="absolute inset-0 w-full h-full object-cover scale-105 brightness-75 transition-all duration-700"
+      />
+
+      {/* DARK + GLASS OVERLAY */}
+      <div
+        className="
+          absolute inset-0 
+          banner-bg
+          backdrop-blur-[6px] 
+          border border-white/10
+        "
+      ></div>
+
+      {/* PROGRESS BAR */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 overflow-hidden">
+        <motion.div
+          key={current}
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 4, ease: "linear" }}
+          className="h-full bg-white"
+        />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 h-full grid md:grid-cols-2 gap-10 items-center">
+
+        {/* TEXT CONTENT */}
         <motion.div
           key={current}
           variants={fade}
@@ -65,7 +99,7 @@ const Banner = () => {
             {slides[current].title}
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90">
+          <p className="text-lg md:text-xl text-gray-200">
             {slides[current].desc}
           </p>
 
@@ -79,6 +113,7 @@ const Banner = () => {
           </div>
         </motion.div>
 
+        {/* IMAGE SECTION */}
         <motion.div
           key={slides[current].img}
           variants={imageAnim}
@@ -90,28 +125,27 @@ const Banner = () => {
             src={slides[current].img}
             alt="Garments Production"
             className="rounded-2xl shadow-lg w-full max-w-md"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
           />
 
-      <button
-        onClick={prevSlide}
-        className="absolute left-5 top-1/2 -translate-y-1/2 text-white text-3xl"
-      >
-        ❮
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-5 top-1/2 -translate-y-1/2 text-white text-3xl"
-      >
-        ❯
-      </button>
+          {/* CONTROLS */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-5 top-1/2 -translate-y-1/2 text-white text-3xl"
+          >
+            ❮
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-5 top-1/2 -translate-y-1/2 text-white text-3xl"
+          >
+            ❯
+          </button>
         </motion.div>
 
-
       </div>
-
     </section>
   )
 }

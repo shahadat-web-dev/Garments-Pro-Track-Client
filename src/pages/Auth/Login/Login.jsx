@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     return (
-        <div className="card bg-base-100 p-10 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+        <div className="card bg-base-100  p-10 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
             <h3 className="text-3xl text-center font-bold">Please Login</h3>
             <form onSubmit={handleSubmit(handleLogin)}>
