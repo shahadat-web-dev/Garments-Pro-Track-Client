@@ -16,17 +16,12 @@ const ImageSpotlightSection = () => {
 
   return (
     <section className="py-24 how-works relative">
-      <div className="relative max-w-7xl mx-auto px-4 flex justify-center items-end gap-6 md:gap-10">
-        {images.map((img, idx) => {
-          const isMiddle = idx === 1; // Middle image slightly wider
-          return (
+      <div className="relative max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 items-end justify-center">
+          {images.map((img, idx) => (
             <div
               key={idx}
-              className={`overflow-hidden rounded-2xl cursor-pointer transform transition-transform duration-500 hover:scale-105 ${
-                isMiddle
-                  ? "w-80 md:w-96 lg:w-md h-112" // Middle image width bigger
-                  : "w-64 md:w-72 lg:w-80 h-112"    // Left/Right images
-              }`}
+              className="overflow-hidden rounded-2xl cursor-pointer transform transition-transform duration-500 hover:scale-105 w-full h-112"
             >
               <img
                 src={img.src}
@@ -34,8 +29,8 @@ const ImageSpotlightSection = () => {
                 className="w-full h-full object-cover rounded-2xl shadow-lg"
               />
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );
