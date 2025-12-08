@@ -10,7 +10,7 @@ const OurProducts = () => {
   }, []);
 
   return (
-    <div className="py-20 bg-gray-100">
+    <div className="py-20 how-works">
       <div className="max-w-7xl mx-auto px-4">
 
         <h2 className="text-4xl font-bold mb-8 text-center">

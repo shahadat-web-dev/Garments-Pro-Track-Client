@@ -3,10 +3,12 @@ import { Link, NavLink } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import { useTheme } from '../../ThemeContext/ThemeContext';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -15,6 +17,19 @@ const Navbar = () => {
         console.log(error);
       });
   };
+
+  // Scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const links = (
     <>
@@ -88,7 +103,13 @@ const Navbar = () => {
   );
 
   return (
-    <div className="backdrop-blur-lg nav-bg text-color  border border-white/20 shadow-lg fixed w-full z-50 transition duration-500">
+    <div
+      className={`fixed w-full z-50 transition-all duration-500 border border-white/20 shadow-lg ${
+        scrolled
+          ? "backdrop-blur-lg banner-bg text-color"
+          : "banner-bg text-white"
+      }`}
+    >
       <div className="navbar max-w-7xl mx-auto md:px-5">
 
         {/* Navbar Start */}
@@ -129,8 +150,6 @@ const Navbar = () => {
         </div>
 
         {/* Navbar End */}
-           
-
         <div className="navbar-end flex items-center gap-3">
 
           {/* Desktop Theme Toggle */}

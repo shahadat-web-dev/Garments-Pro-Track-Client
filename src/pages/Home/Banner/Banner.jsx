@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { motion } from "framer-motion"
+import { Link } from "react-router"
 
 const Banner = () => {
   const slides = [
@@ -40,13 +41,11 @@ const Banner = () => {
     return () => clearTimeout(timer)
   }, [nextSlide])
 
-  // TEXT ANIMATION
   const fade = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   }
 
-  // IMAGE ANIMATION
   const imageAnim = {
     hidden: { opacity: 0, scale: 0.9 },
     show: { opacity: 1, scale: 1, transition: { duration: 1 } },
@@ -94,12 +93,12 @@ const Banner = () => {
           </p>
 
           <div className="flex items-center gap-4">
-            <button className="px-6 py-3 bg-white text-green-700 font-semibold rounded-lg shadow hover:bg-gray-200 transition">
+            <Link
+              to="/all-products"
+              className="inline-block px-6 py-3 border border-white text-white font-semibold rounded-lg bg-white/10 hover:bg-blue-400 transition cursor-pointer text-center"
+            >
               View Product
-            </button>
-            <button className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white/10 transition">
-              Book a Product
-            </button>
+            </Link>
           </div>
         </motion.div>
 
@@ -123,7 +122,7 @@ const Banner = () => {
           {/* CONTROLS OVER IMAGE */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-3xl z-10 
+            className="absolute cursor-pointer left-2 top-1/2 -translate-y-1/2 text-white text-3xl z-10 
                        bg-white/20 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center 
                        hover:bg-white/40 hover:scale-110 transition-all"
           >
@@ -131,7 +130,7 @@ const Banner = () => {
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-3xl z-10 
+            className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 text-white text-3xl z-10 
                        bg-white/20 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center 
                        hover:bg-white/40 hover:scale-110 transition-all"
           >

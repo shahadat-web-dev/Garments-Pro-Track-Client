@@ -4,6 +4,7 @@ import authImage from '../assets/security.avif'
 
 const AuthLayout = () => {
   return (
+    <div className='bg-white'>
     <div className='max-w-7xl  mx-auto'>
       <Logo></Logo>
       <div className='flex min-h-screen  items-center flex-col md:flex-row'>
@@ -14,6 +15,7 @@ const AuthLayout = () => {
           <img src={authImage} alt="" />
         </div>
       </div>
+    </div>
     </div>
   );
 };

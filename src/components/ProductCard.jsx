@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
       p-5 border border-white/30 
       transition-all duration-300 
       hover:scale-105 hover:bg-linear-to-r 
-      hover:from-purple-500/40 hover:to-blue-500/40
+      hover:from-purple-500/40  hover:to-blue-500/40
     ">
       <img 
         src={product.image} 
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
       <button className="
         w-full py-2 rounded-xl 
         bg-blue-600 text-white 
-        hover:bg-blue-700 transition
+        hover:bg-blue-700 cursor-pointer transition
       ">
         View Details
       </button>

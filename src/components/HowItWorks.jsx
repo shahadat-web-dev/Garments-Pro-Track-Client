@@ -30,14 +30,11 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <div className="relative py-20 how-works ">
+    <section className="w-full  how-works  py-20">  {/* FULL-WIDTH BACKGROUND FIXED */}
+      
+      <div className="max-w-7xl mx-auto text-center px-4">
 
-      {/* GLASS OVERLAY */}
-      <div className="absolute inset-0  backdrop-blur-xl"></div>
-
-      <div className="relative max-w-7xl mx-auto text-center px-4">
-
-        <h2 className="text-5xl font-bold text-gray-800  mb-4">How It Works</h2>
+        <h2 className="text-5xl font-bold text-gray-800 mb-4">How It Works</h2>
 
         <p className="text-gray-600 mb-12 text-lg">
           Our process is simple and transparent. Each step ensures your order reaches you on time and accurately.
@@ -52,7 +49,7 @@ const HowItWorks = () => {
                 relative
                 group
                 fade-up
-                how-works
+                
                 backdrop-blur-xl 
                 rounded-2xl 
                 shadow-lg 
@@ -67,19 +64,22 @@ const HowItWorks = () => {
                 hover:-rotate-3
               "
             >
-              {/* Rainbow glow overlay */}
-              <div className="
-                pointer-events-none
-                absolute -inset-1
-                rounded-2xl
-                bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500
-                opacity-0
-                group-hover:opacity-80
-                blur-2xl
-                transition-all duration-700
-              "></div>
+              {/* Glow */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute -inset-1
+                  rounded-2xl
+                  
+                  bg-linear-to-r from-pink-500 via-purple-500 to-blue-500
+                  opacity-0
+                  group-hover:opacity-80
+                  blur-2xl
+                  transition-all duration-700
+                "
+              ></div>
 
-              <div className="relative z-10 flex justify-center mb-5 text-blue-600 transition duration-300 hover:drop-shadow-[0_0_15px_var(--tw-shadow-color)] shadow-blue-500">
+              <div className="relative z-10 flex justify-center mb-5 text-blue-600 transition duration-300">
                 {step.icon}
               </div>
 
@@ -92,7 +92,7 @@ const HowItWorks = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
