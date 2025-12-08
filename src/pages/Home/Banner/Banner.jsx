@@ -40,7 +40,6 @@ const Banner = () => {
     return () => clearTimeout(timer)
   }, [nextSlide])
 
-
   // TEXT ANIMATION
   const fade = {
     hidden: { opacity: 0, y: 30 },
@@ -54,10 +53,8 @@ const Banner = () => {
   }
 
   return (
-    <section
-      className="relative w-full  h-[600px] md:h-[700px] text-color overflow-hidden"
-    >
-
+    <section className="relative w-full h-[600px] md:h-[700px] text-color overflow-hidden">
+      
       {/* Background Image */}
       <img
         src={slides[current].img}
@@ -65,14 +62,7 @@ const Banner = () => {
       />
 
       {/* DARK + GLASS OVERLAY */}
-      <div
-        className="
-          absolute inset-0 
-          banner-bg
-          backdrop-blur-[6px] 
-          border border-white/10
-        "
-      ></div>
+      <div className="absolute inset-0 banner-bg backdrop-blur-[6px] border border-white/10"></div>
 
       {/* PROGRESS BAR */}
       <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 overflow-hidden">
@@ -113,13 +103,13 @@ const Banner = () => {
           </div>
         </motion.div>
 
-        {/* IMAGE SECTION */}
+        {/* IMAGE SECTION WITH BUTTONS */}
         <motion.div
           key={slides[current].img}
           variants={imageAnim}
           initial="hidden"
           animate="show"
-          className="flex justify-center"
+          className="flex justify-center relative"
         >
           <motion.img
             src={slides[current].img}
@@ -130,22 +120,27 @@ const Banner = () => {
             transition={{ duration: 1 }}
           />
 
-          {/* CONTROLS */}
+          {/* CONTROLS OVER IMAGE */}
           <button
             onClick={prevSlide}
-            className="absolute left-5 top-1/2 -translate-y-1/2 text-white text-3xl"
+            className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-3xl z-10 
+                       bg-white/20 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center 
+                       hover:bg-white/40 hover:scale-110 transition-all"
           >
             ❮
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-5 top-1/2 -translate-y-1/2 text-white text-3xl"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-3xl z-10 
+                       bg-white/20 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center 
+                       hover:bg-white/40 hover:scale-110 transition-all"
           >
             ❯
           </button>
-        </motion.div>
 
+        </motion.div>
       </div>
+
     </section>
   )
 }
