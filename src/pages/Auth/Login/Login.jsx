@@ -16,7 +16,7 @@ const Login = () => {
     const handleLogin = (data) => {
         signInUser(data.email, data.password)
             .then(result => {
-              console.log(result);
+                console.log(result);
                 toast.success("Login Successful!");
                 navigate(from, { replace: true });
             })
@@ -26,9 +26,9 @@ const Login = () => {
     }
 
     const handleGoogleLogin = (user) => {
-      toast.success("Google Login Successful!");
-      navigate(from, { replace: true });
-      console.log(user);
+        toast.success("Google Login Successful!");
+        navigate(from, { replace: true });
+        console.log(user);
     }
 
     return (
@@ -47,6 +47,12 @@ const Login = () => {
                     {errors.email?.type === 'required' && (
                         <p className='text-red-500'>Email is required</p>
                     )}
+
+                    <label className="label">Select Role</label>
+                    <select {...register("role", { required: true })} className="select select-bordered">
+                        <option value="buyer">Buyer</option>
+                        <option value="manager">Manager</option>
+                    </select>
 
                     <label className="label">Password</label>
                     <input
