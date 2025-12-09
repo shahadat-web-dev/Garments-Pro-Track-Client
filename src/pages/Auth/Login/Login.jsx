@@ -2,9 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router';
-import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import backgroundImage from '../../../assets/authbg.png'
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -25,14 +25,12 @@ const Login = () => {
             });
     }
 
-    const handleGoogleLogin = (user) => {
-        toast.success("Google Login Successful!");
-        navigate(from, { replace: true });
-        console.log(user);
-    }
 
     return (
         <div className="card bg-base-100  p-10 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+            <div>
+               
+            </div>
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
             <h3 className="text-3xl text-center font-bold">Please Login</h3>
             <form onSubmit={handleSubmit(handleLogin)}>
@@ -48,11 +46,7 @@ const Login = () => {
                         <p className='text-red-500'>Email is required</p>
                     )}
 
-                    <label className="label">Select Role</label>
-                    <select {...register("role", { required: true })} className="select select-bordered">
-                        <option value="buyer">Buyer</option>
-                        <option value="manager">Manager</option>
-                    </select>
+
 
                     <label className="label">Password</label>
                     <input
@@ -65,6 +59,11 @@ const Login = () => {
                         className="input"
                         placeholder="Password"
                     />
+                    <label className="label">Select Role</label>
+                    <select {...register("role", { required: true })} className="select select-bordered">
+                        <option value="buyer">Buyer</option>
+                        <option value="manager">Manager</option>
+                    </select>
                     {errors.password?.type === 'required' && (
                         <p className='text-red-500'>Password is required</p>
                     )}
@@ -82,7 +81,7 @@ const Login = () => {
                 <p>New to GarmentsProTrack? <Link className='text-blue-600 underline font-medium' to='/register'>Register</Link></p>
             </form>
 
-            <SocialLogin onLoginSuccess={handleGoogleLogin} />
+
         </div>
     );
 };

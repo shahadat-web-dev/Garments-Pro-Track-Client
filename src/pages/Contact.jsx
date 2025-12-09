@@ -13,7 +13,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
           {/* Contact Form */}
-          <div className="how-works backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/20">
+          <div className="bg-white backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/20">
             <h2 className="text-3xl font-semibold mb-6 text-gray-800">Send Us a Message</h2>
             <form className="space-y-4">
               <input
@@ -41,7 +41,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="how-works backdrop-blur-lg rounded-2xl p-8 shadow-lg border border-white/20 flex flex-col justify-center">
+          <div className=" backdrop-blur-lg bg-white rounded-2xl p-8 shadow-lg border border-white/20 flex flex-col justify-center">
             <h2 className="text-3xl font-semibold mb-6 text-gray-800">Contact Info</h2>
             <p className="text-gray-700 mb-4">
               <strong>Email:</strong> support@garmentsprotrack.com
