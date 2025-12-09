@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const ProductCard = ({ product }) => {
   return (
     <div className="
@@ -21,13 +23,17 @@ const ProductCard = ({ product }) => {
         ${product.price}
       </p>
 
-      <button className="
-        w-full py-2 rounded-xl 
-        bg-blue-600 text-white 
-        hover:bg-blue-700 cursor-pointer transition
-      ">
+      {/* View Details Button → Route Link */}
+      <Link
+        to={`/product/${product._id}`}
+        className="
+          w-full block text-center py-2 rounded-xl 
+          bg-blue-600 text-white 
+          hover:bg-blue-700 cursor-pointer transition
+        "
+      >
         View Details
-      </button>
+      </Link>
     </div>
   );
 };

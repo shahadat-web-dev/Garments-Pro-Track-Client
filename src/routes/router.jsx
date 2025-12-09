@@ -8,6 +8,7 @@ import NotFound from "../components/NotFound";
 import AllProducts from "../pages/AllProducts";
 import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
+import ProductDetails from "../pages/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +30,12 @@ export const router = createBrowserRouter([
       {
         path: 'contact',
         Component: Contact
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />
       }
+
     ]
   },
   {
