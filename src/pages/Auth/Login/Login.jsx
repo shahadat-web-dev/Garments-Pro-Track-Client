@@ -4,7 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import backgroundImage from '../../../assets/authbg.png'
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -29,7 +29,7 @@ const Login = () => {
     return (
         <div className="card bg-base-100  p-10 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
             <div>
-               
+
             </div>
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
             <h3 className="text-3xl text-center font-bold">Please Login</h3>
@@ -80,7 +80,7 @@ const Login = () => {
                 </fieldset>
                 <p>New to GarmentsProTrack? <Link className='text-blue-600 underline font-medium' to='/register'>Register</Link></p>
             </form>
-
+            <SocialLogin />
 
         </div>
     );

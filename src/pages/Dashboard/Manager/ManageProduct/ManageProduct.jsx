@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ApprovedOrders = () => {
+const ManageProduct = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ApprovedOrders = () => {
   );
 };
 
-export default ApprovedOrders;
+export default ManageProduct;

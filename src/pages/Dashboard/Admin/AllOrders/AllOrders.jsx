@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManagerProfile = () => {
+const AllOrders = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ManagerProfile = () => {
   );
 };
 
-export default ManagerProfile;
+export default AllOrders;

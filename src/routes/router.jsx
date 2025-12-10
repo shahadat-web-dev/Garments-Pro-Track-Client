@@ -9,6 +9,11 @@ import AllProducts from "../pages/AllProducts";
 import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
 import ProductDetails from "../pages/ProductDetails";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayout from "../layout/DashboardLayout";
+import MyOrders from "../pages/Dashboard/Buyer/MyOrders/MyOrders";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import AddProduct from "../pages/Dashboard/Manager/AddProduct/AddProduct";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +38,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetails />
+        element: <PrivateRoute><ProductDetails /></PrivateRoute>
       }
 
     ]
@@ -52,6 +57,27 @@ export const router = createBrowserRouter([
       }
     ]
   },
+
+  // Dashboard
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children: [
+      {
+        path: 'my-orders',
+        Component: MyOrders
+      },
+      {
+        path: 'users-management',
+        Component: ManageUsers
+      },
+      {
+        path: 'add-products',
+        element: <AddProduct/>
+      }
+    ]
+  },
+
   {
     path: '*',
     Component: NotFound

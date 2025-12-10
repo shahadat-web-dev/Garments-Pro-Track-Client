@@ -2,63 +2,17 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
-import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { registerUser, updateUserProfile } = useAuth();
-
   const imageBB_API_KEY = "YOUR_IMGBB_API_KEY";
-
+  
   const handleRegistration = async (data) => {
-    const { name, email, password, role } = data;
+   
 
-    const imageFile = { image: data.photo[0] };
-
-    try {
-      // 1. Upload image to ImgBB
-      const res = await fetch(`https://api.imgbb.com/1/upload?key=${imageBB_API_KEY}`, {
-        method: "POST",
-        body: (() => {
-          const formData = new FormData();
-          formData.append("image", imageFile.image);
-          return formData;
-        })()
-      });
-
-      const imgData = await res.json();
-      const imageURL = imgData.data.url;
-
-      // 2. Create user in Firebase
-      const result = await registerUser(email, password);
-      const loggedUser = result.user; // NOW WORKS
-
-      // 3. Update Firebase Profile
-      await updateUserProfile(name, imageURL);
-
-      // 4. Prepare User Object
-      const userInfo = {
-        name,
-        email,
-        photoURL: imageURL,
-        role,
-        status: "pending"
-      };
-
-      // 5. Save User in Database
-      fetch("https://your-api-url.com/users", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(userInfo)
-      });
-
-      console.log("User Registration Successful", userInfo);
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }
 
   return (
     <div>
@@ -117,7 +71,6 @@ const Register = () => {
           </p>
         </form>
 
-        <SocialLogin />
       </div>
     </div>
   );
