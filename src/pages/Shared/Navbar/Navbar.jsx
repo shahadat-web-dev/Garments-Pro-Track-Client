@@ -36,7 +36,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className="hover:text-white  transition-colors duration-300 font-semibold"
+          className="hover:text-white hover:bg-blue-400  transition-colors duration-300 font-semibold"
         >
           Home
         </NavLink>
@@ -44,34 +44,36 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/all-products"
-          className="hover:text-white  transition-colors duration-300 font-semibold"
+          className="hover:text-white hover:bg-blue-400  transition-colors duration-300 font-semibold"
         >
           All-Products
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/about"
-          className="hover:text-white transition-colors duration-300 font-semibold"
-        >
-          About Us
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/contact"
-          className="hover:text-white  transition-colors duration-300 font-semibold"
-        >
-          Contact
-        </NavLink>
-      </li>
+
 
       {!user && (
         <>
           <li>
             <NavLink
+              to="/about"
+              className="hover:text-white hover:bg-blue-400 transition-colors duration-300 font-semibold"
+            >
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className="hover:text-white hover:bg-blue-400  transition-colors duration-300 font-semibold"
+            >
+              Contact
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
               to="/login"
-              className="hover:text-white  transition-colors duration-300 font-semibold"
+              className="hover:text-white hover:bg-blue-400  transition-colors duration-300 font-semibold"
             >
               Login
             </NavLink>
@@ -79,7 +81,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/register"
-              className="hover:text-white  transition-colors duration-300 font-semibold"
+              className="hover:text-white hover:bg-blue-400  transition-colors duration-300 font-semibold"
             >
               Register
             </NavLink>
@@ -91,8 +93,16 @@ const Navbar = () => {
         <>
           <li>
             <NavLink
+              to="/booking-percel"
+              className="hover:text-white hover:bg-blue-400 transition-colors duration-300 font-semibold"
+            >
+              Booking-Page
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/dashboard"
-              className="hover:text-white  transition-colors duration-300 font-semibold"
+              className="hover:text-white hover:bg-blue-400  transition-colors duration-300 font-semibold"
             >
               Dashboard
             </NavLink>
@@ -104,11 +114,10 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed w-full z-50 transition-all duration-500 border border-white/20 shadow-lg ${
-        scrolled
+      className={`fixed w-full z-50 transition-all duration-500 border border-white/20 shadow-lg ${scrolled
           ? "backdrop-blur-lg banner-bg text-color"
           : "banner-bg text-white"
-      }`}
+        }`}
     >
       <div className="navbar max-w-7xl mx-auto md:px-5">
 

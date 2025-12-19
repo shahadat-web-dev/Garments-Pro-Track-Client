@@ -14,6 +14,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import MyOrders from "../pages/Dashboard/Buyer/MyOrders/MyOrders";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AddProduct from "../pages/Dashboard/Manager/AddProduct/AddProduct";
+import BookingForm from "../pages/BookingForm/BookingForm";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: 'about',
         Component: AboutUs
+      },
+      {
+        path: 'booking-percel',
+        element: <PrivateRoute><BookingForm></BookingForm></PrivateRoute>
       },
       {
         path: 'contact',
@@ -67,14 +72,7 @@ export const router = createBrowserRouter([
         path: 'my-orders',
         Component: MyOrders
       },
-      {
-        path: 'users-management',
-        Component: ManageUsers
-      },
-      {
-        path: 'add-products',
-        element: <AddProduct/>
-      }
+     
     ]
   },
 

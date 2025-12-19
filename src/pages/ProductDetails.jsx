@@ -4,7 +4,7 @@ import { useLoading } from "../context/LoadingContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const { loading, setLoading } = useLoading();
+  const {  setLoading } = useLoading();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {

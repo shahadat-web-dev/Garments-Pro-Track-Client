@@ -19,7 +19,6 @@ createRoot(document.getElementById('root')).render(
           </LoadingProvider>
         </AuthProvider>
       </QueryClientProvider>
-
     </ThemeProvider>
   </StrictMode>,
 )

@@ -1,18 +1,31 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
-
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { registerUser, updateUserProfile } = useAuth();
-  const imageBB_API_KEY = "YOUR_IMGBB_API_KEY";
+  const { registerUser } = useAuth();
+  const navigate = useNavigate();
   
   const handleRegistration = async (data) => {
-   
+    console.log('after register', data);
 
-  }
+    registerUser(data.email, data.password)
+      .then(result => {
+        console.log(result.user);
+
+        // success toast
+        toast.success('Successfully registered');
+
+        // navigate to home
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
 
   return (
     <div>
@@ -30,7 +43,6 @@ const Register = () => {
             <input type="email" {...register("email", { required: true })} className="input" />
             {errors.email && <p className="text-red-500">Email is required</p>}
 
-            {/* File Upload */}
             <label className="label">Photo</label>
             <input type="file" {...register("photo", { required: true })} className="file-input" />
             {errors.photo && <p className="text-red-500">Photo is required</p>}
@@ -41,7 +53,6 @@ const Register = () => {
               <option value="manager">Manager</option>
             </select>
 
-            {/* Hidden Status */}
             <input type="hidden" value="pending" {...register("status")} />
 
             <label className="label">Password</label>
@@ -57,10 +68,11 @@ const Register = () => {
 
             {errors.password?.type === "required" && <p className="text-red-500">Password is required</p>}
             {errors.password?.type === "minLength" && <p className="text-red-500">Minimum 6 characters</p>}
-            {errors.password?.type === "pattern" &&
-              <p className="text-red-500">Must contain uppercase & lowercase</p>}
+            {errors.password?.type === "pattern" && (
+              <p className="text-red-500">Must contain uppercase & lowercase</p>
+            )}
 
-            <button className="btn text-white bg-linear-to-r from-[#DA14EF] to-[#754DC1] mt-4">
+            <button type="submit" className="btn text-white bg-linear-to-r from-[#DA14EF] to-[#754DC1] mt-4">
               Register
             </button>
           </fieldset>
@@ -70,7 +82,7 @@ const Register = () => {
             <Link className="text-blue-600 underline font-medium" to="/login"> Login </Link>
           </p>
         </form>
-
+        <ToastContainer/>
       </div>
     </div>
   );

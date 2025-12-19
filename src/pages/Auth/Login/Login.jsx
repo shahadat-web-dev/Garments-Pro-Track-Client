@@ -9,6 +9,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signInUser } = useAuth();
+    
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
