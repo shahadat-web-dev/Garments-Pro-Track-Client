@@ -22,7 +22,7 @@ const AllProducts = () => {
   }, [setLoading]);
 
   return (
-    <section className="py-20 bg-[#F3F4F6] min-h-screen relative">
+    <section className="py-20 how-works min-h-screen relative">
       {loading && <LoadingSpinner />} 
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold mb-8 text-center">All Products</h2>
