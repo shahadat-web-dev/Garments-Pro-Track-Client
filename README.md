@@ -1,16 +1,150 @@
-# React + Vite
+# 👕 Garments Order & Production Tracker System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application designed to help small and medium-sized garment factories manage product listings, orders, production workflow, and delivery tracking efficiently.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Purpose
 
-## React Compiler
+The **Garments Order & Production Tracker System** simplifies order management for garment businesses by providing role-based dashboards for **Admin**, **Manager**, and **Buyer**.  
+It ensures smooth production tracking, secure authentication, proper inventory handling, and real-time order status updates.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project was developed as part of **Assignment – 11** to demonstrate full-stack development skills, clean UI/UX design, and real-world business logic implementation.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Website
+
+🔗 **Live Site:** https://garments-pro-track-client.vercel.app/
+
+---
+
+## 🔐 Admin & Demo Credentials
+
+**Admin**
+- Email: admin@email.com  
+- Password: admin123  
+
+**Manager**
+- Email: manager@email.com  
+- Password: manager123  
+
+---
+
+## 🧩 Key Features
+
+### 🔑 Authentication & Authorization
+- Email & Password Authentication (Firebase)
+- Google Login (Buyer role, pending status)
+- JWT-based private route protection (token stored in cookies)
+- Role-based access control (Admin / Manager / Buyer)
+- Suspended users restriction with feedback display
+
+---
+
+### 🏠 Public Pages
+- Home Page with Framer Motion animations
+- Product Showcase (MongoDB data)
+- Product Details Page
+- About Us & Contact Pages
+- Responsive Navbar & Footer
+- 404 Not Found Page
+
+---
+
+### 🛍️ Buyer Features
+- View all products
+- Product booking with quantity validation
+- Order tracking timeline
+- Cancel pending orders
+- View suspend feedback (if suspended)
+- Profile management
+
+---
+
+### 🧑‍💼 Manager Features
+- Add new products
+- Manage own products
+- Approve / Reject pending orders
+- Add production tracking updates
+- View approved orders
+- Profile & suspend feedback view
+
+---
+
+### 🛠️ Admin Features
+- Manage users (approve / suspend with reason)
+- Manage all products
+- Control homepage featured products
+- View all orders with filter & search
+- Analytics Dashboard (optional)
+- Role update system
+
+---
+
+## 📊 Dashboard Functionalities
+- Fully responsive dashboard layout
+- Charts & statistics visualization
+- Search, filter & pagination
+- Reusable components & modals
+- Dynamic page titles
+- Light/Dark theme toggle
+
+---
+
+## 🧪 Validation & UX Enhancements
+- React Hook Form validation
+- Password strength enforcement
+- Loading spinners during API calls
+- SweetAlert / Toast notifications
+- Route reload protection
+- Firebase domain authorization
+
+---
+
+## 🧰 Technology Stack
+
+### Frontend
+- React
+- React Router DOM
+- Tailwind CSS
+- Framer Motion
+- React Hook Form
+- Axios
+- SweetAlert2 / React Toastify
+- Firebase Authentication
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JSON Web Token (JWT)
+- Cookie Parser
+- CORS
+- Dotenv
+
+---
+
+## 🔐 Security
+- Firebase configuration secured using environment variables
+- MongoDB credentials secured using environment variables
+- JWT stored in HTTP-only cookies
+- Protected private routes
+
+---
+
+## 📁 Project Repositories
+
+🔗 **Client Repository:** https://github.com/your-username/garments-tracker-client  
+🔗 **Server Repository:** https://github.com/your-username/garments-tracker-server  
+
+---
+
+## 🛠️ Installation & Setup
+
+### Client Side
+```bash
+git clone https://github.com/your-username/garments-tracker-client.git
+cd garments-tracker-client
+npm install
+npm run dev
