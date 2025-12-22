@@ -1,4 +1,4 @@
-import Logo from '../../../components/logo/Logo';
+import Logo from '../../../components/Logo/Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import { useTheme } from '../../../context/ThemeContext';
