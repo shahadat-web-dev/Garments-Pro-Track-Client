@@ -52,8 +52,15 @@ const ProductDetails = () => {
 
           {/* Back button */}
           <Link
+            to="/booking-percel"
+            className="inline-block mb-5 px-6 py-3 bg-linear-to-r from-[#8BC0FF]  to-[#D6AEFF] text-white font-semibold rounded-lg shadow-md hover:scale-105 transform transition-all"
+          >
+            Order 
+          </Link>
+          {/* Back button */}
+          <Link
             to="/all-products"
-            className="inline-block px-6 py-3 bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:scale-105 transform transition-all"
+            className="inline-block px-6 py-3 bg-linear-to-r from-[#8BC0FF]  to-[#D6AEFF] text-white font-semibold rounded-lg shadow-md hover:scale-105 transform transition-all"
           >
             Back to All Products
           </Link>

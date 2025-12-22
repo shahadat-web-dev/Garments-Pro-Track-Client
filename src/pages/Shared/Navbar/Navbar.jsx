@@ -1,7 +1,7 @@
 import Logo from '../../../components/logo/Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
-import { useTheme } from '../../ThemeContext/ThemeContext';
+import { useTheme } from '../../../context/ThemeContext';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { useState, useEffect } from 'react';
 
@@ -91,14 +91,7 @@ const Navbar = () => {
 
       {user && (
         <>
-          <li>
-            <NavLink
-              to="/booking-percel"
-              className="hover:text-white hover:bg-blue-400 transition-colors duration-300 font-semibold"
-            >
-              Booking-Page
-            </NavLink>
-          </li>
+          
           <li>
             <NavLink
               to="/dashboard"

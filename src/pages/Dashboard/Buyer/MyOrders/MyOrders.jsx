@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { FaEdit } from 'react-icons/fa';
 import { FaMagnifyingGlass, FaRegTrashCan } from 'react-icons/fa6';
+import { Link } from 'react-router';
 
 const MyOrders = () => {
   const { user } = useAuth();
@@ -18,7 +19,7 @@ const MyOrders = () => {
 
 
 
-    const handleDelete = id => {
+  const handleDelete = id => {
     console.log(id);
 
     Swal.fire({
@@ -61,36 +62,47 @@ const MyOrders = () => {
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Payment</th>
               <th>Role</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-          {
-            bookings.map((booking, index) =>   <tr key={booking._id}>
-              <th>{index + 1}</th>
-              <td>{booking.firstName}</td>
-              <td>${booking.email}</td>
-                <td>Blue</td>
-              <td>
-                 <td>
-                  <button className='btn btn-square hover:bg-primary'>
-                    <FaMagnifyingGlass size={18} />
-                  </button>
-                  <button className='btn mx-2 btn-square'>
-                    <FaEdit size={18} />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(booking._id)}
-                    className='btn btn-square hover:bg-primary'>
-                    <FaRegTrashCan size={18} />
-                  </button>
+            {
+              bookings.map((booking, index) => <tr key={booking._id}>
+                <th>{index + 1}</th>
+                <td>{booking.firstName}</td>
+                <td>${booking.email}</td>
+                <td>
+                  {
+                    booking.paymentStatus === 'paid' ? 
+                    <span className='text-fuchsia-400'>Paid</span>
+                    : 
+                    <Link to={`/dashboard/payment/${booking._id}`}>
+                      <button className='bg-[#5320df] p-2 rounded-sm text-white font-bold btn btn-sm'>Pay</button>
+                    </Link>
+                  }
                 </td>
-              </td>
-              
-            </tr>)
-          }
-           
+                <td>Blue</td>
+                <td>
+                  <td>
+                    <button className='btn btn-square hover:bg-primary'>
+                      <FaMagnifyingGlass size={18} />
+                    </button>
+                    <button className='btn mx-2 btn-square'>
+                      <FaEdit size={18} />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(booking._id)}
+                      className='btn btn-square hover:bg-primary'>
+                      <FaRegTrashCan size={18} />
+                    </button>
+                  </td>
+                </td>
+
+              </tr>)
+            }
+
           </tbody>
         </table>
       </div>

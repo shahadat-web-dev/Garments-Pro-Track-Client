@@ -15,6 +15,7 @@ import MyOrders from "../pages/Dashboard/Buyer/MyOrders/MyOrders";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AddProduct from "../pages/Dashboard/Manager/AddProduct/AddProduct";
 import BookingForm from "../pages/BookingForm/BookingForm";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,13 @@ export const router = createBrowserRouter([
         path: 'my-orders',
         Component: MyOrders
       },
+      {
+        path: 'payment/:parcelId',
+        Component: Payment
+      },
+      {
+        path: 'my-profile'
+      }
      
     ]
   },

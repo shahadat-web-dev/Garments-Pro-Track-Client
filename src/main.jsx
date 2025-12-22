@@ -4,7 +4,7 @@ import { RouterProvider } from "react-router/dom";
 import './index.css'
 import { router } from './routes/router.jsx';
 import AuthProvider from './context/AuthContext/AuthProvider.jsx';
-import { ThemeProvider } from './pages/ThemeContext/ThemeContext.jsx';
+import { ThemeProvider } from './context/ThemeContext.jsx';
 import { LoadingProvider } from './context/LoadingContext.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient()
