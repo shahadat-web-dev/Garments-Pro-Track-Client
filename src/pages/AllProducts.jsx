@@ -9,7 +9,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     setLoading(true); 
-    fetch("http://localhost:3000/api/products?limit=0")
+    fetch("https://garments-order-tracker-sarver.vercel.app/api/products?limit=0")
       .then(res => res.json())
       .then(data => {
         setProducts(data);

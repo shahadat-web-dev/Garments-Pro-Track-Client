@@ -9,7 +9,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setLoading(true); // spinner চালু
-    fetch(`http://localhost:3000/api/products/${id}`)
+    fetch(`https://garments-order-tracker-sarver.vercel.app/api/products/${id}`)
       .then(res => res.json())
       .then(data => {
         setProduct(data);

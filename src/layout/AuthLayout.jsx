@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router';
-import Logo from '../components/logo/Logo';
+import Logo from '../components/Logo/Logo';
 import authImage from '../assets/security.avif'
 import backgroundImage from '../assets/authbg.png'
 const AuthLayout = () => {
